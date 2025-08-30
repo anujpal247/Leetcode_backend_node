@@ -23,7 +23,7 @@ export class ProblemService implements IProblemService {
   }
 
   async createProblem(problem: CreateProblemDto): Promise<IProblem> {
-
+    
     const sanitizedPayload = {
       ...problem,
       description: await sanitizeMarkdown(problem.description),
