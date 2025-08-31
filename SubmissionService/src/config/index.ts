@@ -6,6 +6,7 @@ type ServerConfig = {
     DB_URL: string
     REDIS_HOST: string
     REDIS_PORT: number
+    PROBLEM_SERVICE: string
 }
 
 function loadEnv() {
@@ -20,4 +21,5 @@ export const serverConfig: ServerConfig = {
     DB_URL: process.env.DB_URL || "mongodb://localhost:27017/lc_submission_db",
     REDIS_HOST: process.env.REDIS_HOST || "localhost",
     REDIS_PORT: Number(process.env.REDIS_PORT) || 6379,
+    PROBLEM_SERVICE: process.env.PROBLEM_SERVICE || "http://localhost:4001/api/v1",
 };

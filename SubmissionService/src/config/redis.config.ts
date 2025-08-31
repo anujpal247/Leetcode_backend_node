@@ -17,6 +17,6 @@ redis.on("error", (error) => {
   console.error("Redis connection error", error);
 })
 
-export const createNewRedisConnection = async () => {
+export const createNewRedisConnection = () => {
   return new Redis(redisConfig);
 }
