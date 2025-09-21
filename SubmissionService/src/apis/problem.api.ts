@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import logger from "../config/logger.config";
 import { serverConfig } from "../config";
 import { InternalServerError } from "../utils/errors/app.error";
@@ -30,7 +30,7 @@ export async function getProblemById(problemId: string): Promise<IProblemDetails
   try {
     const url = `${serverConfig.PROBLEM_SERVICE}/problems/${problemId}`;
     logger.info(`Fetching problem details from ${url}`);
-    const response = await axios.get<IProblemResponse>(url);
+    const response: AxiosResponse<IProblemResponse> = await axios.get(url);
 
     if(response.data && response.data.success){
       return response.data.data;
